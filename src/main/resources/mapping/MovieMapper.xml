@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie.mapper.MovieMapper" >
+  <resultMap id="BaseResultMap" type="com.movie.model.Movie" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="movie_name" property="movieName" jdbcType="VARCHAR" />
+    <result column="movie_url" property="movieUrl" jdbcType="VARCHAR" />
+    <result column="movie_actor" property="movieActor" jdbcType="VARCHAR" />
+    <result column="movie_intro" property="movieIntro" jdbcType="VARCHAR" />
+    <result column="movie_rate" property="movieRate" jdbcType="VARCHAR" />
+    <result column="movie_label" property="movieLabel" jdbcType="VARCHAR" />
+    <result column="movie_picture" property="moviePicture" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, movie_name, movie_url, movie_actor, movie_intro, movie_rate, movie_label, movie_picture
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Movie
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Movie
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.movie.model.Movie" >
+    insert into Movie (id, movie_name, movie_url, 
+      movie_actor, movie_intro, movie_rate, 
+      movie_label, movie_picture)
+    values (#{id,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, #{movieUrl,jdbcType=VARCHAR}, 
+      #{movieActor,jdbcType=VARCHAR}, #{movieIntro,jdbcType=VARCHAR}, #{movieRate,jdbcType=VARCHAR}, 
+      #{movieLabel,jdbcType=VARCHAR}, #{moviePicture,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.movie.model.Movie" >
+    insert into Movie
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="movieName != null" >
+        movie_name,
+      </if>
+      <if test="movieUrl != null" >
+        movie_url,
+      </if>
+      <if test="movieActor != null" >
+        movie_actor,
+      </if>
+      <if test="movieIntro != null" >
+        movie_intro,
+      </if>
+      <if test="movieRate != null" >
+        movie_rate,
+      </if>
+      <if test="movieLabel != null" >
+        movie_label,
+      </if>
+      <if test="moviePicture != null" >
+        movie_picture,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="movieName != null" >
+        #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="movieUrl != null" >
+        #{movieUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="movieActor != null" >
+        #{movieActor,jdbcType=VARCHAR},
+      </if>
+      <if test="movieIntro != null" >
+        #{movieIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="movieRate != null" >
+        #{movieRate,jdbcType=VARCHAR},
+      </if>
+      <if test="movieLabel != null" >
+        #{movieLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="moviePicture != null" >
+        #{moviePicture,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.movie.model.Movie" >
+    update Movie
+    <set >
+      <if test="movieName != null" >
+        movie_name = #{movieName,jdbcType=VARCHAR},
+      </if>
+      <if test="movieUrl != null" >
+        movie_url = #{movieUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="movieActor != null" >
+        movie_actor = #{movieActor,jdbcType=VARCHAR},
+      </if>
+      <if test="movieIntro != null" >
+        movie_intro = #{movieIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="movieRate != null" >
+        movie_rate = #{movieRate,jdbcType=VARCHAR},
+      </if>
+      <if test="movieLabel != null" >
+        movie_label = #{movieLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="moviePicture != null" >
+        movie_picture = #{moviePicture,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.movie.model.Movie" >
+    update Movie
+    set movie_name = #{movieName,jdbcType=VARCHAR},
+      movie_url = #{movieUrl,jdbcType=VARCHAR},
+      movie_actor = #{movieActor,jdbcType=VARCHAR},
+      movie_intro = #{movieIntro,jdbcType=VARCHAR},
+      movie_rate = #{movieRate,jdbcType=VARCHAR},
+      movie_label = #{movieLabel,jdbcType=VARCHAR},
+      movie_picture = #{moviePicture,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
