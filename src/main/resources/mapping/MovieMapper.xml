@@ -20,6 +20,14 @@
     from Movie
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from Movie
+    where movie_name = #{movie_name,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from Movie
     where id = #{id,jdbcType=INTEGER}

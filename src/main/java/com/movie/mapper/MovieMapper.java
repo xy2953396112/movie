@@ -11,6 +11,8 @@ public interface MovieMapper {
 
     Movie selectByPrimaryKey(Integer id);
 
+    Movie selectByName(String name);
+
     int updateByPrimaryKeySelective(Movie record);
 
     int updateByPrimaryKey(Movie record);
