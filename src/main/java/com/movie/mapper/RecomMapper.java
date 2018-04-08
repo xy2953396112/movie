@@ -1,7 +1,9 @@
 package com.movie.mapper;
 
 import com.movie.model.Recom;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface RecomMapper {
     int deleteByPrimaryKey(Integer id);
 

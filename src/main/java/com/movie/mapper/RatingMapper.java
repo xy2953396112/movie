@@ -1,7 +1,9 @@
 package com.movie.mapper;
 
 import com.movie.model.Rating;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface RatingMapper {
     int deleteByPrimaryKey(Integer id);
 

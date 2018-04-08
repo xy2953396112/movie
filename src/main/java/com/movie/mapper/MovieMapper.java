@@ -1,7 +1,9 @@
 package com.movie.mapper;
 
 import com.movie.model.Movie;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface MovieMapper {
     int deleteByPrimaryKey(Integer id);
 

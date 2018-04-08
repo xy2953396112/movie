@@ -20,7 +20,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private UserMapper userMapper;
+    protected UserMapper userMapper;
 
     @ResponseBody
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})

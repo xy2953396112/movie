@@ -1,9 +1,11 @@
 package com.movie.mapper;
 
 import com.movie.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface UserMapper {
     int deleteByPrimaryKey(Integer uid);
 
