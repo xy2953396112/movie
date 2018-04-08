@@ -60,15 +60,5 @@ public class UserController {
          return list;
     }
 
-    //根据主键查询个人信息
-    @RequestMapping(value = "/findSelf")
-    @ResponseBody
-    public User findSelf(Integer id){
 
-
-
-        User user =  userMapper.selectByPrimaryKey(id);
-
-        return user;
-    }
 }
