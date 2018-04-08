@@ -5,17 +5,15 @@ public class Movie {
 
     private String movieName;
 
-    private String movieUrl;
+    private String movieDirector;
 
     private String movieActor;
 
-    private String movieIntro;
-
-    private String movieRate;
-
-    private String movieLabel;
-
     private String moviePicture;
+
+    private Integer year;
+
+    private String movieIntro;
 
     public Integer getId() {
         return id;
@@ -33,12 +31,12 @@ public class Movie {
         this.movieName = movieName == null ? null : movieName.trim();
     }
 
-    public String getMovieUrl() {
-        return movieUrl;
+    public String getMovieDirector() {
+        return movieDirector;
     }
 
-    public void setMovieUrl(String movieUrl) {
-        this.movieUrl = movieUrl == null ? null : movieUrl.trim();
+    public void setMovieDirector(String movieDirector) {
+        this.movieDirector = movieDirector == null ? null : movieDirector.trim();
     }
 
     public String getMovieActor() {
@@ -49,35 +47,27 @@ public class Movie {
         this.movieActor = movieActor == null ? null : movieActor.trim();
     }
 
-    public String getMovieIntro() {
-        return movieIntro;
-    }
-
-    public void setMovieIntro(String movieIntro) {
-        this.movieIntro = movieIntro == null ? null : movieIntro.trim();
-    }
-
-    public String getMovieRate() {
-        return movieRate;
-    }
-
-    public void setMovieRate(String movieRate) {
-        this.movieRate = movieRate == null ? null : movieRate.trim();
-    }
-
-    public String getMovieLabel() {
-        return movieLabel;
-    }
-
-    public void setMovieLabel(String movieLabel) {
-        this.movieLabel = movieLabel == null ? null : movieLabel.trim();
-    }
-
     public String getMoviePicture() {
         return moviePicture;
     }
 
     public void setMoviePicture(String moviePicture) {
         this.moviePicture = moviePicture == null ? null : moviePicture.trim();
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getMovieIntro() {
+        return movieIntro;
+    }
+
+    public void setMovieIntro(String movieIntro) {
+        this.movieIntro = movieIntro == null ? null : movieIntro.trim();
     }
 }

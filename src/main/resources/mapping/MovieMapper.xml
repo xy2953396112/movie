@@ -4,26 +4,34 @@
   <resultMap id="BaseResultMap" type="com.movie.model.Movie" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="movie_name" property="movieName" jdbcType="VARCHAR" />
-    <result column="movie_url" property="movieUrl" jdbcType="VARCHAR" />
+    <result column="movie_director" property="movieDirector" jdbcType="VARCHAR" />
     <result column="movie_actor" property="movieActor" jdbcType="VARCHAR" />
-    <result column="movie_intro" property="movieIntro" jdbcType="VARCHAR" />
-    <result column="movie_rate" property="movieRate" jdbcType="VARCHAR" />
-    <result column="movie_label" property="movieLabel" jdbcType="VARCHAR" />
     <result column="movie_picture" property="moviePicture" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.movie.model.Movie" extends="BaseResultMap" >
+    <result column="movie_intro" property="movieIntro" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, movie_name, movie_url, movie_actor, movie_intro, movie_rate, movie_label, movie_picture
+    id, movie_name, movie_director, movie_actor, movie_picture, year
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <sql id="Blob_Column_List" >
+    movie_intro
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from Movie
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByName" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from Movie
     where movie_name = #{movie_name,jdbcType=VARCHAR}
   </select>
@@ -33,12 +41,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.movie.model.Movie" >
-    insert into Movie (id, movie_name, movie_url, 
-      movie_actor, movie_intro, movie_rate, 
-      movie_label, movie_picture)
-    values (#{id,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, #{movieUrl,jdbcType=VARCHAR}, 
-      #{movieActor,jdbcType=VARCHAR}, #{movieIntro,jdbcType=VARCHAR}, #{movieRate,jdbcType=VARCHAR}, 
-      #{movieLabel,jdbcType=VARCHAR}, #{moviePicture,jdbcType=VARCHAR})
+    insert into Movie (id, movie_name, movie_director, 
+      movie_actor, movie_picture, year, 
+      movie_intro)
+    values (#{id,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, #{movieDirector,jdbcType=VARCHAR}, 
+      #{movieActor,jdbcType=VARCHAR}, #{moviePicture,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, 
+      #{movieIntro,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.movie.model.Movie" >
     insert into Movie
@@ -49,23 +57,20 @@
       <if test="movieName != null" >
         movie_name,
       </if>
-      <if test="movieUrl != null" >
-        movie_url,
+      <if test="movieDirector != null" >
+        movie_director,
       </if>
       <if test="movieActor != null" >
         movie_actor,
       </if>
-      <if test="movieIntro != null" >
-        movie_intro,
-      </if>
-      <if test="movieRate != null" >
-        movie_rate,
-      </if>
-      <if test="movieLabel != null" >
-        movie_label,
-      </if>
       <if test="moviePicture != null" >
         movie_picture,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="movieIntro != null" >
+        movie_intro,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -75,23 +80,20 @@
       <if test="movieName != null" >
         #{movieName,jdbcType=VARCHAR},
       </if>
-      <if test="movieUrl != null" >
-        #{movieUrl,jdbcType=VARCHAR},
+      <if test="movieDirector != null" >
+        #{movieDirector,jdbcType=VARCHAR},
       </if>
       <if test="movieActor != null" >
         #{movieActor,jdbcType=VARCHAR},
       </if>
-      <if test="movieIntro != null" >
-        #{movieIntro,jdbcType=VARCHAR},
-      </if>
-      <if test="movieRate != null" >
-        #{movieRate,jdbcType=VARCHAR},
-      </if>
-      <if test="movieLabel != null" >
-        #{movieLabel,jdbcType=VARCHAR},
-      </if>
       <if test="moviePicture != null" >
         #{moviePicture,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="movieIntro != null" >
+        #{movieIntro,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -101,36 +103,41 @@
       <if test="movieName != null" >
         movie_name = #{movieName,jdbcType=VARCHAR},
       </if>
-      <if test="movieUrl != null" >
-        movie_url = #{movieUrl,jdbcType=VARCHAR},
+      <if test="movieDirector != null" >
+        movie_director = #{movieDirector,jdbcType=VARCHAR},
       </if>
       <if test="movieActor != null" >
         movie_actor = #{movieActor,jdbcType=VARCHAR},
       </if>
-      <if test="movieIntro != null" >
-        movie_intro = #{movieIntro,jdbcType=VARCHAR},
-      </if>
-      <if test="movieRate != null" >
-        movie_rate = #{movieRate,jdbcType=VARCHAR},
-      </if>
-      <if test="movieLabel != null" >
-        movie_label = #{movieLabel,jdbcType=VARCHAR},
-      </if>
       <if test="moviePicture != null" >
         movie_picture = #{moviePicture,jdbcType=VARCHAR},
       </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="movieIntro != null" >
+        movie_intro = #{movieIntro,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.movie.model.Movie" >
+    update Movie
+    set movie_name = #{movieName,jdbcType=VARCHAR},
+      movie_director = #{movieDirector,jdbcType=VARCHAR},
+      movie_actor = #{movieActor,jdbcType=VARCHAR},
+      movie_picture = #{moviePicture,jdbcType=VARCHAR},
+      year = #{year,jdbcType=INTEGER},
+      movie_intro = #{movieIntro,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.movie.model.Movie" >
     update Movie
     set movie_name = #{movieName,jdbcType=VARCHAR},
-      movie_url = #{movieUrl,jdbcType=VARCHAR},
+      movie_director = #{movieDirector,jdbcType=VARCHAR},
       movie_actor = #{movieActor,jdbcType=VARCHAR},
-      movie_intro = #{movieIntro,jdbcType=VARCHAR},
-      movie_rate = #{movieRate,jdbcType=VARCHAR},
-      movie_label = #{movieLabel,jdbcType=VARCHAR},
-      movie_picture = #{moviePicture,jdbcType=VARCHAR}
+      movie_picture = #{moviePicture,jdbcType=VARCHAR},
+      year = #{year,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
