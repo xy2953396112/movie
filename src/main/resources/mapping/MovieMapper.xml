@@ -9,7 +9,7 @@
     <result column="movie_actor" property="movieActor" jdbcType="VARCHAR" />
     <result column="movie_picture" property="moviePicture" jdbcType="VARCHAR" />
     <result column="year" property="year" jdbcType="VARCHAR" />
-    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="DECIMAL" />
     <result column="score_count" property="scoreCount" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.movie.model.Movie" extends="BaseResultMap" >
@@ -102,7 +102,7 @@
       movie_intro)
     values (#{movieid,jdbcType=INTEGER}, #{movieName,jdbcType=VARCHAR}, #{imdbid,jdbcType=INTEGER}, 
       #{movieDirector,jdbcType=VARCHAR}, #{movieActor,jdbcType=VARCHAR}, #{moviePicture,jdbcType=VARCHAR}, 
-      #{year,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{scoreCount,jdbcType=INTEGER}, 
+      #{year,jdbcType=VARCHAR}, #{score,jdbcType=DECIMAL}, #{scoreCount,jdbcType=INTEGER}, 
       #{movieIntro,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.movie.model.Movie" >
@@ -162,7 +162,7 @@
         #{year,jdbcType=VARCHAR},
       </if>
       <if test="score != null" >
-        #{score,jdbcType=INTEGER},
+        #{score,jdbcType=DECIMAL},
       </if>
       <if test="scoreCount != null" >
         #{scoreCount,jdbcType=INTEGER},
@@ -194,7 +194,7 @@
         year = #{year,jdbcType=VARCHAR},
       </if>
       <if test="score != null" >
-        score = #{score,jdbcType=INTEGER},
+        score = #{score,jdbcType=DECIMAL},
       </if>
       <if test="scoreCount != null" >
         score_count = #{scoreCount,jdbcType=INTEGER},
@@ -213,7 +213,7 @@
       movie_actor = #{movieActor,jdbcType=VARCHAR},
       movie_picture = #{moviePicture,jdbcType=VARCHAR},
       year = #{year,jdbcType=VARCHAR},
-      score = #{score,jdbcType=INTEGER},
+      score = #{score,jdbcType=DECIMAL},
       score_count = #{scoreCount,jdbcType=INTEGER},
       movie_intro = #{movieIntro,jdbcType=LONGVARCHAR}
     where movieID = #{movieid,jdbcType=INTEGER}
@@ -226,7 +226,7 @@
       movie_actor = #{movieActor,jdbcType=VARCHAR},
       movie_picture = #{moviePicture,jdbcType=VARCHAR},
       year = #{year,jdbcType=VARCHAR},
-      score = #{score,jdbcType=INTEGER},
+      score = #{score,jdbcType=DECIMAL},
       score_count = #{scoreCount,jdbcType=INTEGER}
     where movieID = #{movieid,jdbcType=INTEGER}
   </update>

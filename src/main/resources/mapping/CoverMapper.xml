@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.movie.mapper.CoverMapper" >
+  <resultMap id="BaseResultMap" type="com.movie.model.Cover" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="first" property="first" jdbcType="INTEGER" />
+    <result column="second" property="second" jdbcType="INTEGER" />
+    <result column="third" property="third" jdbcType="INTEGER" />
+    <result column="forth" property="forth" jdbcType="INTEGER" />
+    <result column="fifth" property="fifth" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.movie.model.Cover" >
+    insert into Cover (id, first, second, 
+      third, forth, fifth
+      )
+    values (#{id,jdbcType=INTEGER}, #{first,jdbcType=INTEGER}, #{second,jdbcType=INTEGER}, 
+      #{third,jdbcType=INTEGER}, #{forth,jdbcType=INTEGER}, #{fifth,jdbcType=INTEGER}
+      )
+  </insert>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+
+    select
+    *
+    from Cover
+
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+
+  <insert id="insertSelective" parameterType="com.movie.model.Cover" >
+    insert into Cover
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="first != null" >
+        first,
+      </if>
+      <if test="second != null" >
+        second,
+      </if>
+      <if test="third != null" >
+        third,
+      </if>
+      <if test="forth != null" >
+        forth,
+      </if>
+      <if test="fifth != null" >
+        fifth,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="first != null" >
+        #{first,jdbcType=INTEGER},
+      </if>
+      <if test="second != null" >
+        #{second,jdbcType=INTEGER},
+      </if>
+      <if test="third != null" >
+        #{third,jdbcType=INTEGER},
+      </if>
+      <if test="forth != null" >
+        #{forth,jdbcType=INTEGER},
+      </if>
+      <if test="fifth != null" >
+        #{fifth,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

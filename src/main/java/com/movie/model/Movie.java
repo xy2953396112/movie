@@ -1,5 +1,7 @@
 package com.movie.model;
 
+import java.math.BigDecimal;
+
 public class Movie {
     private Integer movieid;
 
@@ -15,7 +17,7 @@ public class Movie {
 
     private String year;
 
-    private Integer score;
+    private BigDecimal score;
 
     private Integer scoreCount;
 
@@ -77,11 +79,11 @@ public class Movie {
         this.year = year == null ? null : year.trim();
     }
 
-    public Integer getScore() {
+    public BigDecimal getScore() {
         return score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(BigDecimal score) {
         this.score = score;
     }
 

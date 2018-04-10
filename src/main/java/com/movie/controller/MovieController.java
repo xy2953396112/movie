@@ -19,21 +19,21 @@ public class MovieController {
 
       //电影信息
       @Autowired
-      private MovieMapper movieMapper;
+     MovieMapper moviemapper;
       //电影评价信息
       @Autowired
-      private RatingMapper ratingMapper;
+      RatingMapper ratingmapper;
       //电影评价信息
       @Autowired
-      private RecommandMapper recommandMapper;
+     RecommandMapper recommandmapper;
       @Autowired
-      private CoverMapper coverMapper;
+      CoverMapper covermapper;
 
       //按电影id来查找
       @RequestMapping("/findMoiveById")
       @ResponseBody
       public Movie findMoiveById(Integer id){
-           Movie movie = movieMapper.selectByPrimaryKey(id);
+           Movie movie = moviemapper.selectByPrimaryKey(id);
 
            return movie;
       }
@@ -45,7 +45,7 @@ public class MovieController {
 
           MovieExample movieExample = new MovieExample();
         movieExample.or().andImdbidEqualTo(id);
-        Movie movie = (Movie)movieMapper.selectByExample(movieExample);
+        Movie movie = (Movie)moviemapper.selectByExample(movieExample);
 
         return movie;
     }
@@ -58,7 +58,7 @@ public class MovieController {
 
           MovieExample movieExample = new MovieExample();
           movieExample.or().andMovieNameEqualTo(name);
-            Movie movie = (Movie) movieMapper.selectByExample(movieExample);
+            Movie movie = (Movie) moviemapper.selectByExample(movieExample);
 
             return movie;
       }
@@ -67,7 +67,7 @@ public class MovieController {
       @RequestMapping("/recMovie")
       @ResponseBody
         public Recommand recMovieByUserId(Integer id){
-          Recommand movie = recommandMapper.selectByPrimaryKey(id);
+          Recommand movie = recommandmapper.selectByPrimaryKey(id);
 
             return movie;
         }
@@ -77,7 +77,7 @@ public class MovieController {
     @RequestMapping("/recCoverById")
     @ResponseBody
     public Cover recCoverById(Integer id){
-        Cover cover = coverMapper.selectByPrimaryKey(id);
+        Cover cover = covermapper.selectByPrimaryKey(id);
 
         return cover;
     }
@@ -90,7 +90,7 @@ public class MovieController {
           RatingExample re = new RatingExample();
           re.or().andUseridEqualTo(userId).andMovieidEqualTo(movieId);
 
-         Rating rate = (Rating) ratingMapper.selectByExample(re);
+         Rating rate = (Rating) ratingmapper.selectByExample(re);
 
           return rate;
       }
@@ -103,7 +103,7 @@ public class MovieController {
         RatingExample re = new RatingExample();
         re.or().andUseridEqualTo(userId);
 
-        List<Rating> rate = ratingMapper.selectByExample(re);
+        List<Rating> rate = ratingmapper.selectByExample(re);
 
         return rate;
     }

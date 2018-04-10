@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.movie.mapper.RecommandMapper">
+  <resultMap id="BaseResultMap" type="com.movie.model.Recommand">
+    <id column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="movieID1" jdbcType="INTEGER" property="movieid1" />
+    <result column="movieID2" jdbcType="INTEGER" property="movieid2" />
+    <result column="movieID3" jdbcType="INTEGER" property="movieid3" />
+    <result column="movieID4" jdbcType="INTEGER" property="movieid4" />
+    <result column="movieID5" jdbcType="INTEGER" property="movieid5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userID, movieID1, movieID2, movieID3, movieID4, movieID5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Recommand
+    where userID = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Recommand
+    where userID = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.movie.model.Recommand">
+    insert into Recommand (userID, movieID1, movieID2, 
+      movieID3, movieID4, movieID5
+      )
+    values (#{userid,jdbcType=INTEGER}, #{movieid1,jdbcType=INTEGER}, #{movieid2,jdbcType=INTEGER}, 
+      #{movieid3,jdbcType=INTEGER}, #{movieid4,jdbcType=INTEGER}, #{movieid5,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.movie.model.Recommand">
+    insert into Recommand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="movieid1 != null">
+        movieID1,
+      </if>
+      <if test="movieid2 != null">
+        movieID2,
+      </if>
+      <if test="movieid3 != null">
+        movieID3,
+      </if>
+      <if test="movieid4 != null">
+        movieID4,
+      </if>
+      <if test="movieid5 != null">
+        movieID5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="movieid1 != null">
+        #{movieid1,jdbcType=INTEGER},
+      </if>
+      <if test="movieid2 != null">
+        #{movieid2,jdbcType=INTEGER},
+      </if>
+      <if test="movieid3 != null">
+        #{movieid3,jdbcType=INTEGER},
+      </if>
+      <if test="movieid4 != null">
+        #{movieid4,jdbcType=INTEGER},
+      </if>
+      <if test="movieid5 != null">
+        #{movieid5,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.movie.model.Recommand">
+    update Recommand
+    <set>
+      <if test="movieid1 != null">
+        movieID1 = #{movieid1,jdbcType=INTEGER},
+      </if>
+      <if test="movieid2 != null">
+        movieID2 = #{movieid2,jdbcType=INTEGER},
+      </if>
+      <if test="movieid3 != null">
+        movieID3 = #{movieid3,jdbcType=INTEGER},
+      </if>
+      <if test="movieid4 != null">
+        movieID4 = #{movieid4,jdbcType=INTEGER},
+      </if>
+      <if test="movieid5 != null">
+        movieID5 = #{movieid5,jdbcType=INTEGER},
+      </if>
+    </set>
+    where userID = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.movie.model.Recommand">
+    update Recommand
+    set movieID1 = #{movieid1,jdbcType=INTEGER},
+      movieID2 = #{movieid2,jdbcType=INTEGER},
+      movieID3 = #{movieid3,jdbcType=INTEGER},
+      movieID4 = #{movieid4,jdbcType=INTEGER},
+      movieID5 = #{movieid5,jdbcType=INTEGER}
+    where userID = #{userid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.movie.model.Recommand">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="movieID1" jdbcType="INTEGER" property="movieid1" />
+    <result column="movieID2" jdbcType="INTEGER" property="movieid2" />
+    <result column="movieID3" jdbcType="INTEGER" property="movieid3" />
+    <result column="movieID4" jdbcType="INTEGER" property="movieid4" />
+    <result column="movieID5" jdbcType="INTEGER" property="movieid5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userID, movieID1, movieID2, movieID3, movieID4, movieID5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Recommand
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Recommand
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.movie.model.Recommand">
+    insert into Recommand (id, userID, movieID1, 
+      movieID2, movieID3, movieID4, 
+      movieID5)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{movieid1,jdbcType=INTEGER}, 
+      #{movieid2,jdbcType=INTEGER}, #{movieid3,jdbcType=INTEGER}, #{movieid4,jdbcType=INTEGER}, 
+      #{movieid5,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.movie.model.Recommand">
+    insert into Recommand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="movieid1 != null">
+        movieID1,
+      </if>
+      <if test="movieid2 != null">
+        movieID2,
+      </if>
+      <if test="movieid3 != null">
+        movieID3,
+      </if>
+      <if test="movieid4 != null">
+        movieID4,
+      </if>
+      <if test="movieid5 != null">
+        movieID5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="movieid1 != null">
+        #{movieid1,jdbcType=INTEGER},
+      </if>
+      <if test="movieid2 != null">
+        #{movieid2,jdbcType=INTEGER},
+      </if>
+      <if test="movieid3 != null">
+        #{movieid3,jdbcType=INTEGER},
+      </if>
+      <if test="movieid4 != null">
+        #{movieid4,jdbcType=INTEGER},
+      </if>
+      <if test="movieid5 != null">
+        #{movieid5,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.movie.model.Recommand">
+    update Recommand
+    <set>
+      <if test="userid != null">
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="movieid1 != null">
+        movieID1 = #{movieid1,jdbcType=INTEGER},
+      </if>
+      <if test="movieid2 != null">
+        movieID2 = #{movieid2,jdbcType=INTEGER},
+      </if>
+      <if test="movieid3 != null">
+        movieID3 = #{movieid3,jdbcType=INTEGER},
+      </if>
+      <if test="movieid4 != null">
+        movieID4 = #{movieid4,jdbcType=INTEGER},
+      </if>
+      <if test="movieid5 != null">
+        movieID5 = #{movieid5,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.movie.model.Recommand">
+    update Recommand
+    set userID = #{userid,jdbcType=INTEGER},
+      movieID1 = #{movieid1,jdbcType=INTEGER},
+      movieID2 = #{movieid2,jdbcType=INTEGER},
+      movieID3 = #{movieid3,jdbcType=INTEGER},
+      movieID4 = #{movieid4,jdbcType=INTEGER},
+      movieID5 = #{movieid5,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
