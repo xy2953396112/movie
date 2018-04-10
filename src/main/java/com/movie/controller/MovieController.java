@@ -1,44 +1,64 @@
 package com.movie.controller;
 
+import com.movie.mapper.CoverMapper;
 import com.movie.mapper.MovieMapper;
 import com.movie.mapper.RatingMapper;
-import com.movie.mapper.RecomMapper;
-import com.movie.model.Movie;
-import com.movie.model.Rating;
-import com.movie.model.Recom;
+import com.movie.mapper.RecommandMapper;
+import com.movie.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 
 @Controller
+@RequestMapping(value = "/movie")
 public class MovieController {
 
       //电影信息
       @Autowired
-      private MovieMapper mm;
+      private MovieMapper movieMapper;
       //电影评价信息
       @Autowired
-      RatingMapper rm;
+      private RatingMapper ratingMapper;
       //电影评价信息
       @Autowired
-      RecomMapper recomMapper;
+      private RecommandMapper recommandMapper;
+      @Autowired
+      private CoverMapper coverMapper;
 
       //按电影id来查找
       @RequestMapping("/findMoiveById")
       @ResponseBody
       public Movie findMoiveById(Integer id){
-           Movie movie = mm.selectByPrimaryKey(id);
+           Movie movie = movieMapper.selectByPrimaryKey(id);
 
            return movie;
       }
+
+    //按ImdbId来查找
+    @RequestMapping("/findMoiveByImdbId")
+    @ResponseBody
+    public Movie findMoiveByImdbId(Integer id){
+
+          MovieExample movieExample = new MovieExample();
+        movieExample.or().andImdbidEqualTo(id);
+        Movie movie = (Movie)movieMapper.selectByExample(movieExample);
+
+        return movie;
+    }
 
       //按电影名称来查找
       @RequestMapping("/findMoiveByName")
       @ResponseBody
       public Movie findMoiveByName(String name){
-            Movie movie = mm.selectByName(name);
+
+
+          MovieExample movieExample = new MovieExample();
+          movieExample.or().andMovieNameEqualTo(name);
+            Movie movie = (Movie) movieMapper.selectByExample(movieExample);
 
             return movie;
       }
@@ -46,20 +66,47 @@ public class MovieController {
       //按用户id来查找，给这个用户推荐的电影
       @RequestMapping("/recMovie")
       @ResponseBody
-        public Recom recMovie(Integer id){
-            Recom movie = recomMapper.selectByPrimaryKey(id);
+        public Recommand recMovieByUserId(Integer id){
+          Recommand movie = recommandMapper.selectByPrimaryKey(id);
 
             return movie;
         }
 
-      //查看电影评分，通过电影id
+
+    //封面相似度查找，根据Id查找
+    @RequestMapping("/recCoverById")
+    @ResponseBody
+    public Cover recCoverById(Integer id){
+        Cover cover = coverMapper.selectByPrimaryKey(id);
+
+        return cover;
+    }
+
+      //查看电影评分，通过电影userId,用户对电影的评分,单个评分
       @RequestMapping("/movieRate")
       @ResponseBody
-      public Rating movieRate(Integer id){
-          Rating movie = rm.selectByPrimaryKey(id);
+      public Rating movieRate(Integer userId,Integer movieId){
 
-          return movie;
+          RatingExample re = new RatingExample();
+          re.or().andUseridEqualTo(userId).andMovieidEqualTo(movieId);
+
+         Rating rate = (Rating) ratingMapper.selectByExample(re);
+
+          return rate;
       }
+
+    //查看电影评分，通过电影userId,用户对电影的评分,所有的评分
+    @RequestMapping("/movieRateByUserId")
+    @ResponseBody
+    public List<Rating> movieRateByUserId(Integer userId,Integer movieId){
+
+        RatingExample re = new RatingExample();
+        re.or().andUseridEqualTo(userId);
+
+        List<Rating> rate = ratingMapper.selectByExample(re);
+
+        return rate;
+    }
 
 
 }

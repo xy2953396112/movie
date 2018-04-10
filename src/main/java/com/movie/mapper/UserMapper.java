@@ -1,8 +1,8 @@
 package com.movie.mapper;
 
 import com.movie.model.User;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
@@ -13,9 +13,9 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
+    User selectByUserId(Integer userId);
+
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
-
-    List<User> selectAllUser();
 }

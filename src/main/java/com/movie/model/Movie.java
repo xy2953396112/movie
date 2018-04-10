@@ -1,11 +1,11 @@
 package com.movie.model;
 
-import java.math.BigDecimal;
-
 public class Movie {
-    private Integer id;
+    private Integer movieid;
 
     private String movieName;
+
+    private Integer imdbid;
 
     private String movieDirector;
 
@@ -13,20 +13,20 @@ public class Movie {
 
     private String moviePicture;
 
-    private Integer year;
+    private String year;
 
-    private BigDecimal score;
+    private Integer score;
 
-    private Integer headcount;
+    private Integer scoreCount;
 
     private String movieIntro;
 
-    public Integer getId() {
-        return id;
+    public Integer getMovieid() {
+        return movieid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMovieid(Integer movieid) {
+        this.movieid = movieid;
     }
 
     public String getMovieName() {
@@ -35,6 +35,14 @@ public class Movie {
 
     public void setMovieName(String movieName) {
         this.movieName = movieName == null ? null : movieName.trim();
+    }
+
+    public Integer getImdbid() {
+        return imdbid;
+    }
+
+    public void setImdbid(Integer imdbid) {
+        this.imdbid = imdbid;
     }
 
     public String getMovieDirector() {
@@ -61,28 +69,28 @@ public class Movie {
         this.moviePicture = moviePicture == null ? null : moviePicture.trim();
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setYear(String year) {
+        this.year = year == null ? null : year.trim();
     }
 
-    public BigDecimal getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(BigDecimal score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 
-    public Integer getHeadcount() {
-        return headcount;
+    public Integer getScoreCount() {
+        return scoreCount;
     }
 
-    public void setHeadcount(Integer headcount) {
-        this.headcount = headcount;
+    public void setScoreCount(Integer scoreCount) {
+        this.scoreCount = scoreCount;
     }
 
     public String getMovieIntro() {

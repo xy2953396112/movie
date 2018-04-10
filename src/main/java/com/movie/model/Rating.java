@@ -1,17 +1,16 @@
 package com.movie.model;
 
-import java.util.Date;
+import org.springframework.stereotype.Service;
+
 
 public class Rating {
     private Integer id;
 
-    private String userid;
+    private Integer userid;
 
-    private String movieid;
+    private Integer movieid;
 
     private Float rating;
-
-    private Date time;
 
     public Integer getId() {
         return id;
@@ -21,20 +20,20 @@ public class Rating {
         this.id = id;
     }
 
-    public String getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
-    public String getMovieid() {
+    public Integer getMovieid() {
         return movieid;
     }
 
-    public void setMovieid(String movieid) {
-        this.movieid = movieid == null ? null : movieid.trim();
+    public void setMovieid(Integer movieid) {
+        this.movieid = movieid;
     }
 
     public Float getRating() {
@@ -43,13 +42,5 @@ public class Rating {
 
     public void setRating(Float rating) {
         this.rating = rating;
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
     }
 }

@@ -1,15 +1,24 @@
 package com.movie.mapper;
 
 import com.movie.model.Movie;
+import com.movie.model.MovieExample;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 
 public interface MovieMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer movieid);
 
     int insert(Movie record);
 
     int insertSelective(Movie record);
 
-    Movie selectByPrimaryKey(Integer id);
+    List<Movie> selectByExampleWithBLOBs(MovieExample example);
+
+    List<Movie> selectByExample(MovieExample example);
+
+    Movie selectByPrimaryKey(Integer movieid);
 
     int updateByPrimaryKeySelective(Movie record);
 

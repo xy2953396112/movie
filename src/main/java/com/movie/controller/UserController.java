@@ -16,48 +16,20 @@ import java.util.List;
 @RequestMapping(value = "/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
 
     @Autowired
-    protected UserMapper userMapper;
-
-    @ResponseBody
-    @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
-    public int addUser(User user){
-        return userService.addUser(user);
-    }
-
-    @RequestMapping(value = "/all/{pageNum}/{pageSize}", produces = {"application/json;charset=UTF-8"})
-    public Object findAllUser(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize){
-
-        return userService.findAllUser(pageNum,pageSize);
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "/select")
-    public User selectUser(){
-        return userService.selectUser();
-
-    }
-
-
-    @RequestMapping(value = "/index")
-    public String index(){
-        return "index";
-
-    }
+    UserMapper userMapper;
 
     //查询所有个人信息
     @RequestMapping(value = "/findSelf")
     @ResponseBody
-    public List<User> findSelf(HttpSession session){
+    public User findSelf(Integer userId,HttpSession session){
 
          String username= (String) session.getAttribute("user");
 
-         List<User> list =  userMapper.selectAllUser();
+         User user =  userMapper.selectByUserId(userId);
 
-         return list;
+         return user;
     }
 
 

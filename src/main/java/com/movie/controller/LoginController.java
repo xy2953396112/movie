@@ -11,18 +11,18 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
+
+
+
+
     @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-    @RequestMapping("/loginUser")
     public String loginUser(String username,String password,HttpSession session) {
-        UsernamePasswordToken usernamePasswordToken=new UsernamePasswordToken(username,password);
-        Subject subject = SecurityUtils.getSubject();
+        //UsernamePasswordToken usernamePasswordToken=new UsernamePasswordToken(username,password);
+        //Subject subject = SecurityUtils.getSubject();
         try {
-            subject.login(usernamePasswordToken);   //完成登录
-            User user=(User) subject.getPrincipal();
-            session.setAttribute("user", user);
+            //subject.login(usernamePasswordToken);   //完成登录
+
+            session.setAttribute("user", username);
             return "index";
         } catch(Exception e) {
             return "login";//返回登录页面
@@ -31,9 +31,8 @@ public class LoginController {
     }
     @RequestMapping("/logOut")
     public String logOut(HttpSession session) {
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
+
         session.removeAttribute("user");
-        return "login";
+        return "index";
     }
 }
