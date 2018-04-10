@@ -26,7 +26,7 @@ public class MovieController {
       RecomMapper recomMapper;
 
       //按电影id来查找
-      @RequestMapping("findMoiveById")
+      @RequestMapping("/findMoiveById")
       @ResponseBody
       public Movie findMoiveById(Integer id){
            Movie movie = mm.selectByPrimaryKey(id);
@@ -35,7 +35,7 @@ public class MovieController {
       }
 
       //按电影名称来查找
-      @RequestMapping("findMoiveByName")
+      @RequestMapping("/findMoiveByName")
       @ResponseBody
       public Movie findMoiveByName(String name){
             Movie movie = mm.selectByName(name);
@@ -44,7 +44,7 @@ public class MovieController {
       }
 
       //按用户id来查找，给这个用户推荐的电影
-      @RequestMapping("recMovie")
+      @RequestMapping("/recMovie")
       @ResponseBody
         public Recom recMovie(Integer id){
             Recom movie = recomMapper.selectByPrimaryKey(id);
@@ -53,7 +53,7 @@ public class MovieController {
         }
 
       //查看电影评分，通过电影id
-      @RequestMapping("movieRate")
+      @RequestMapping("/movieRate")
       @ResponseBody
       public Rating movieRate(Integer id){
           Rating movie = rm.selectByPrimaryKey(id);
