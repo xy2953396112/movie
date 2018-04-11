@@ -1,8 +1,6 @@
 package com.movie.mapper;
 
 import com.movie.model.Movie;
-import com.movie.model.MovieExample;
-import java.util.List;
 
 public interface MovieMapper {
     int deleteByPrimaryKey(Integer movieid);
@@ -11,11 +9,9 @@ public interface MovieMapper {
 
     int insertSelective(Movie record);
 
-    List<Movie> selectByExampleWithBLOBs(MovieExample example);
-
-    List<Movie> selectByExample(MovieExample example);
-
     Movie selectByPrimaryKey(Integer movieid);
+
+    Movie selectByImdbId(Integer id);
 
     int updateByPrimaryKeySelective(Movie record);
 

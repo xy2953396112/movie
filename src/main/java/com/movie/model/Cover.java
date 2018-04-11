@@ -1,8 +1,5 @@
 package com.movie.model;
 
-import org.springframework.stereotype.Service;
-
-
 public class Cover {
     private Integer id;
 

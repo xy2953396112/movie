@@ -1,8 +1,6 @@
 package com.movie.mapper;
 
 import com.movie.model.Recommand;
-import org.springframework.stereotype.Service;
-
 
 public interface RecommandMapper {
     int deleteByPrimaryKey(Integer userid);

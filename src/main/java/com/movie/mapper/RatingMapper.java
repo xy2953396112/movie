@@ -1,11 +1,8 @@
 package com.movie.mapper;
 
 import com.movie.model.Rating;
-import com.movie.model.RatingExample;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 
 public interface RatingMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,9 +11,9 @@ public interface RatingMapper {
 
     int insertSelective(Rating record);
 
-    List<Rating> selectByExample(RatingExample example);
-
     Rating selectByPrimaryKey(Integer id);
+
+    List<Rating> selectByUserId(Integer userId);
 
     int updateByPrimaryKeySelective(Rating record);
 

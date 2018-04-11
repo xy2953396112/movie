@@ -1,7 +1,6 @@
 package com.movie.model;
 
-import org.springframework.stereotype.Service;
-
+import java.math.BigDecimal;
 
 public class Rating {
     private Integer id;
@@ -10,7 +9,7 @@ public class Rating {
 
     private Integer movieid;
 
-    private Float rating;
+    private BigDecimal rating;
 
     public Integer getId() {
         return id;
@@ -36,11 +35,11 @@ public class Rating {
         this.movieid = movieid;
     }
 
-    public Float getRating() {
+    public BigDecimal getRating() {
         return rating;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(BigDecimal rating) {
         this.rating = rating;
     }
 }

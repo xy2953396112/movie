@@ -1,8 +1,5 @@
 package com.movie.model;
 
-import org.springframework.stereotype.Service;
-
-
 public class Recommand {
     private Integer userid;
 

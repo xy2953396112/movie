@@ -17,20 +17,9 @@ import java.util.List;
 public class UserController {
 
 
-    @Autowired
-    UserMapper usermapper;
 
-    //查询所有个人信息
-    @RequestMapping(value = "/findSelf")
-    @ResponseBody
-    public User findSelf(Integer userId,HttpSession session){
 
-         String username= (String) session.getAttribute("user");
 
-         User user =  usermapper.selectByUserId(userId);
-
-         return user;
-    }
 
 
 }
