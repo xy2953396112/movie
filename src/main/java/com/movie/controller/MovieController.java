@@ -64,14 +64,14 @@ public class MovieController {
     //按电影id来查找
     @RequestMapping("/recMovie")
     @ResponseBody
-    public Recommand recMovie(Integer userId) {
-        Recommand recommand = recommandMapper.selectByPrimaryKey(userId);
+    public Recommand recMovie(Integer userID) {
+        Recommand recommand = recommandMapper.selectByPrimaryKey(userID);
 
         return recommand;
     }
 
     //按cover id来查找
-    @RequestMapping("/findRecByUserId")
+    @RequestMapping("/findRecByImdbId")
     @ResponseBody
     public Cover recCover(Integer id) {
         Cover cover = coverMapper.selectByPrimaryKey(id);
