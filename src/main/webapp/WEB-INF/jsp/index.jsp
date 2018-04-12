@@ -37,7 +37,7 @@
                 <img class="logo" src="./imgs/Google_Logo.png">
             </div>
             <div class="nav-search">
-                <form action="/subject">
+                <form action="/movie/subject">
                     <fieldset>
                         <legend>搜索：</legend>
                         <label for="inp-query">
@@ -65,7 +65,7 @@
                                 <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY268_CR1,0,182,268_AL_.jpg">
                             </dt>
                             <dd>
-                                <a href="/subject?id=356">Forrest Gump (1994)</a>
+                                <a href="/movie/subject?id=356">Forrest Gump (1994)</a>
                             </dd>
                         </dl>
                         <dl id="top2">
@@ -73,7 +73,7 @@
                                 <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg">
                             </dt>
                             <dd>
-                                <a href="/subject?id=318">Shawshank Redemption, The (1994)</a>
+                                <a href="/movie/subject?id=318">Shawshank Redemption, The (1994)</a>
                             </dd>
                         </dl>
                         <dl id="top3">
@@ -81,7 +81,7 @@
                                 <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_UX182_CR0,0,182,268_AL_.jpg">
                             </dt>
                             <dd>
-                                <a href="/subject?id=296">Pulp Fiction (1994)</a>
+                                <a href="/movie/subject?id=296">Pulp Fiction (1994)</a>
                             </dd>
                         </dl>
                         <dl id="top4">
@@ -89,7 +89,7 @@
                                 <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg">
                             </dt>
                             <dd>
-                                <a href="/subject?id=593">Silence of the Lambs, The (1991)</a>
+                                <a href="/movie/subject?id=593">Silence of the Lambs, The (1991)</a>
                             </dd>
                         </dl>
                         <dl id="top5">
@@ -97,7 +97,7 @@
                                 <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg">
                             </dt>
                             <dd>
-                                <a href="/subject?id=2571">Matrix, The (1999)</a>
+                                <a href="/movie/subject?id=2571">Matrix, The (1999)</a>
                             </dd>
                         </dl>
                     </div>
@@ -163,7 +163,7 @@
         var myRec = new Object();
         $.ajax({
             type : "get",
-            url : "/movie/recMovie",
+            url : "/movie/movie/recMovie",
             data : "userID=" + userName,
             async : false,
             success : function(data){
@@ -171,35 +171,35 @@
             }
         });
 
-        $.get("/movie/findMoiveById", "id=" + myRec.movieid1, function(data){
+        $.get("/movie/movie/findMoiveById", "id=" + myRec.movieid1, function(data){
             var Movie = data;
             $("#rec1 dt img").attr("src", Movie.moviePicture);
             $("#rec1 dd a").text(Movie.movieName);
-            $("#rec1 dd a").attr("href","/subject?id=" + Movie.movieid);
+            $("#rec1 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
         });
-        $.get("/movie/findMoiveById", "id=" + myRec.movieid2, function(data){
+        $.get("/movie/movie/findMoiveById", "id=" + myRec.movieid2, function(data){
             var Movie = data;
             $("#rec2 dt img").attr("src", Movie.moviePicture);
             $("#rec2 dd a").text(Movie.movieName);
-            $("#rec2 dd a").attr("href","/subject?id=" + Movie.movieid);
+            $("#rec2 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
         });
-        $.get("/movie/findMoiveById", "id=" + myRec.movieid3, function(data){
+        $.get("/movie/movie/findMoiveById", "id=" + myRec.movieid3, function(data){
             var Movie = data;
             $("#rec3 dt img").attr("src", Movie.moviePicture);
             $("#rec3 dd a").text(Movie.movieName);
-            $("#rec3 dd a").attr("href","/subject?id=" + Movie.movieid);
+            $("#rec3 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
         });
-        $.get("/movie/findMoiveById", "id=" + myRec.movieid4, function(data){
+        $.get("/movie/movie/findMoiveById", "id=" + myRec.movieid4, function(data){
             var Movie = data;
             $("#rec4 dt img").attr("src", Movie.moviePicture);
             $("#rec4 dd a").text(Movie.movieName);
-            $("#rec4 dd a").attr("href","/subject?id=" + Movie.movieid);
+            $("#rec4 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
         });
-        $.get("/movie/findMoiveById", "id=" + myRec.movieid5, function(data){
+        $.get("/movie/movie/findMoiveById", "id=" + myRec.movieid5, function(data){
             var Movie = data;
             $("#rec5 dt img").attr("src", Movie.moviePicture);
             $("#rec5 dd a").text(Movie.movieName);
-            $("#rec5 dd a").attr("href","/subject?id=" + Movie.movieid);
+            $("#rec5 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
         });
         $(".personal").removeAttr("hidden");
 

@@ -39,7 +39,7 @@
             <img class="logo" src="./imgs/Google_Logo.png">
           </div>
           <div class="nav-search">
-            <form action="/subject" method="get">
+            <form action="/movie/subject" method="get">
               <fieldset>
                 <legend>搜索：</legend>
                 <label for="inp-query">
@@ -181,7 +181,7 @@
         var myMovie = new Object();
         $.ajax({
             type : "get",
-            url : "/movie/findMoiveById",
+            url : "/movie/movie/findMoiveById",
             data : "id=" + movieID,
             success : function(data){
                 var myMovie = data;
@@ -200,37 +200,37 @@
                         half: true,
                         score: myMovie.score});
                 });
-                $.get("/movie/findRecByImdbId","id=" + myMovie.imdbid, function(data){
+                $.get("/movie/movie/findRecByImdbId","id=" + myMovie.imdbid, function(data){
                     var coverRec = data;
-                    $.get("/movie/findMoiveByImdbId", "id=" + coverRec.first, function(data){
+                    $.get("/movie/movie/findMoiveByImdbId", "id=" + coverRec.first, function(data){
                         var Movie = data;
                         $("#rec1 dt img").attr("src", Movie.moviePicture);
                         $("#rec1 dd a").text(Movie.movieName);
-                        $("#rec1 dd a").attr("href","/subject?id=" + Movie.movieid);
+                        $("#rec1 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
                     });
-                    $.get("/movie/findMoiveByImdbId", "id=" + coverRec.second, function(data){
+                    $.get("/movie/movie/findMoiveByImdbId", "id=" + coverRec.second, function(data){
                         var Movie = data;
                         $("#rec2 dt img").attr("src", Movie.moviePicture);
                         $("#rec2 dd a").text(Movie.movieName);
-                        $("#rec2 dd a").attr("href","/subject?id=" + Movie.movieid);
+                        $("#rec2 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
                     });
-                    $.get("/movie/findMoiveByImdbId", "id=" + coverRec.third, function(data){
+                    $.get("/movie/movie/findMoiveByImdbId", "id=" + coverRec.third, function(data){
                         var Movie = data;
                         $("#rec3 dt img").attr("src", Movie.moviePicture);
                         $("#rec3 dd a").text(Movie.movieName);
-                        $("#rec3 dd a").attr("href","/subject?id=" + Movie.movieid);
+                        $("#rec3 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
                     });
-                    $.get("/movie/findMoiveByImdbId", "id=" + coverRec.forth, function(data){
+                    $.get("/movie/movie/findMoiveByImdbId", "id=" + coverRec.forth, function(data){
                         var Movie = data;
                         $("#rec4 dt img").attr("src", Movie.moviePicture);
                         $("#rec4 dd a").text(Movie.movieName);
-                        $("#rec4 dd a").attr("href","/subject?id=" + Movie.movieid);
+                        $("#rec4 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
                     });
-                    $.get("/movie/findMoiveByImdbId", "id=" + coverRec.fifth, function(data){
+                    $.get("/movie/movie/findMoiveByImdbId", "id=" + coverRec.fifth, function(data){
                         var Movie = data;
                         $("#rec5 dt img").attr("src", Movie.moviePicture);
                         $("#rec5 dd a").text(Movie.movieName);
-                        $("#rec5 dd a").attr("href","/subject?id=" + Movie.movieid);
+                        $("#rec5 dd a").attr("href","/movie/subject?id=" + Movie.movieid);
                     });
 
                 });
