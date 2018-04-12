@@ -1,0 +1,215 @@
+html body, html td, html th, html .pl, html input {
+  font-size: 14px;
+}
+#global-nav {
+  height: 28px;
+  color: #d5d5d5;
+  background-color: #545652;
+  min-width: 960px;
+}
+  #global-nav .top-nav-info {
+    float: right;
+    margin: 0 12px 0 0;
+    line-height: 28px;
+  }
+    #global-nav .top-nav-info ul {
+      list-style-type: none;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+      #global-nav .top-nav-info li {
+        float: left;
+      }
+        #global-nav .top-nav-info li a {
+          display: block;
+          color: #d5d5d5;
+          padding: 0 5px 0px 5px;
+          text-align: center;
+          text-decoration: none;
+        }
+  #global-nav .global-nav-items {
+    float: left;
+    line-height: 28px;
+  }
+    #global-nav .global-nav-items ul {
+      list-style-type: none;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+      #global-nav .global-nav-items li {
+        float: left;
+      }
+        #global-nav .global-nav-items li a {
+          display: block;
+          color: #d5d5d5;
+          padding: 0 6px 0 6px;
+          text-align: center;
+          text-decoration: none;
+        }
+        .active {
+          background-color: #4CAF50;
+        }
+        .logo {
+          width: 100%
+        }
+        .nav {
+          min-width: 960px;
+          margin-bottom: 30px;
+          width: 100%;
+          overflow: hidden;
+        }
+#nav-movie {
+  position: relative;
+  background-color: #f0f3f5;
+}
+  #nav-movie .nav-wrap {
+    border-color: #e3ebec;
+    border-bottom: 1px solid #e5ebe4;
+  }
+
+.nav-primary {
+  margin-left: auto;
+  margin-right: auto;
+  width:800px;
+  overflow: visible !important;
+  position: relative;
+  text-align: center;
+  padding: 10px 0 10px;
+  zoom: 1;
+}
+.nav-logo {
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+}
+
+.nav-search {
+  margin-left: 75px;
+  overflow: visible !important;
+  position: relative;
+  zoom: 1;
+  padding: 10px 0 15px 0;
+}
+  .nav-search fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: static;
+  }
+  .nav-search legend {
+    display: none;
+  }
+  .nav-search label {
+    position: absolute;
+    left: 11px;
+    top: 10px;
+    line-height: 30px;
+    cursor: text;
+    color: #bbb;
+    width: auto;
+  }
+  .nav-search .inp {
+    float: left;
+    width: 470px;
+    height: 34px;
+    text-align: center;
+    margin-right: -3px;
+    cursor: text;
+  }
+    .nav-search .inp input {
+      background: #fff;
+      width: 96%;
+      margin: 0;
+      text-align: left;
+      height: 30px;
+      padding-left: 10px;
+      height: 28px\9;
+      line-height: 28px\9;
+      outline: none;
+    }
+  .nav-search input {
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+  }
+  .nav-search .inp-btn {
+    position: relative;
+    left: -4px;
+    width: 32px;
+    height: 32px;
+    zoom: 1;
+    overflow: hidden;
+  }
+    .nav-search .inp-btn input {
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      padding: 35px 0 0 0;
+      overflow: hidden;
+      cursor: pointer;
+    }
+#wrapper {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#recommendations {
+  margin-left: 10px;
+  width: 750px;
+}
+
+ #recommendations h2 {
+   font: 15px Arial, Helvetica, sans-serif;
+   line-height: 150%;
+   margin: 24px 0 8px 0;
+   font-size: 16px;
+   font-weight: bold;
+ }
+ #recommendations .recommendations-bd {
+   border-top: 1px solid #eaeaea;
+   padding-top: 10px;
+ }
+ #recommendations .recommendations-bd dl {
+    display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    margin: 0 25px 15px 0;
+    overflow: hidden;
+ }
+ #recommendations .recommendations-bd dt {
+    height: 161px;
+    width: 115px;
+    margin-bottom: 8px;
+    overflow: hidden;
+ }
+ #recommendations .recommendations-bd dd {
+   font-size: 13px;
+   text-align: center;
+   width: 115px;
+   -webkit-margin-start: 0px;
+ }
+ #recommendations .recommendations-bd img {
+   max-width:115px;
+ }
+ i, strong {
+   font-style: normal;
+   font-weight: bold;
+ }
+ a {
+   color: #37a;
+   cursor: pointer;
+ }
+ a:link {
+    color: #37a;
+    text-decoration: none;
+}
+ a:visited {
+    color: #666699;
+    text-decoration: none;
+}

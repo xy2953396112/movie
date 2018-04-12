@@ -25,7 +25,7 @@ public class LoginController {
             session.setAttribute("user", username);
             return "index";
         } catch(Exception e) {
-            return "login";//返回登录页面
+            return "account";//返回登录页面
         }
         
     }

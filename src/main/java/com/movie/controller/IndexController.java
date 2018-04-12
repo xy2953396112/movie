@@ -15,4 +15,12 @@ public class IndexController {
          //根据返回的视图，确定首页
         return new ModelAndView("index");
     }
+    @RequestMapping("/account")
+    public ModelAndView account() {
+        return new ModelAndView("account");
+    }
+    @RequestMapping("/subject")
+    public ModelAndView subject() {
+        return new ModelAndView("subject");
+    }
 }
