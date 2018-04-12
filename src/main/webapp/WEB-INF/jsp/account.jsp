@@ -81,7 +81,7 @@
       <div id="content">
         <h1>登录MovieRec</h1>
         <div class="article">
-          <form id="lzform" name="lzform" method="post" action="/login">
+          <form id="lzform" name="lzform" method="post" action="/movie/login">
             <div class="item">
               <label>帐号</label>
               <input id="email" name="username" type="text" class="basic-input" maxlength="60" placeholder="用户名"

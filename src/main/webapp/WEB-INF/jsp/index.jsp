@@ -19,7 +19,7 @@
     <div class="top-nav-info">
         <ul>
             <li><a rel="nofollow">注册</a></li>
-            <li><a href="account" rel="nofollow">登录</a></li>
+            <li><a href="/movie/account" rel="nofollow">登录</a></li>
         </ul>
     </div>
     <div class="global-nav-items">
@@ -158,7 +158,7 @@
     {}
     else
     {
-        var modify= "<ul><li>" + "用户 " + userName +  " 已登录" + "</li><li><a href=\"/logOut\">注销</a></li></ul>";
+        var modify= "<ul><li>" + "用户 " + userName +  " 已登录" + "</li><li><a href=\"/movie/logOut\">注销</a></li></ul>";
         $(".top-nav-info").html(modify);
         var myRec = new Object();
         $.ajax({
